@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lua Script Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Lua Script - Carousel Toggle</h2>
+
+  <pre><code>
+local ProximityPrompt = script.Parent.ProximityPrompt
+local HorsesModel = workspace.Carousel.Horses
+local RotatingScript = HorsesModel.Script
+local toggle = false
+ProximityPrompt.ActionText = "Activate"
+
+ProximityPrompt.Triggered:Connect(function()
+  if not toggle then
+    toggle = true
+    ProximityPrompt.ActionText = "Deactivate"
+    RotatingScript.Enabled = true
+  else
+    toggle = false
+    ProximityPrompt.ActionText = "Activate"
+    RotatingScript.Enabled = false
+  end
+end)
+  </code></pre>
+
+</body>
+</html>
